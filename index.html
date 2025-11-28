@@ -3,16 +3,224 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. James Andrade - Atendimento Veterinário Domiciliar</title>
+    
+    <!-- SEO Meta Tags -->
+    <title>Dr. James Andrade - Veterinário Domiciliar em Campo Grande MS | Atendimento 24h</title>
+    <meta name="description" content="Atendimento veterinário domiciliar 24h em Campo Grande MS. Consultas, vacinação e tratamentos no conforto da sua casa. CRMV/MS 6923. Agende agora!">
+    <meta name="keywords" content="veterinário domiciliar, veterinário campo grande, atendimento veterinário em casa, veterinário 24 horas, consulta veterinária domiciliar, vacinação pet, Dr. James Andrade">
+    <meta name="author" content="Dr. James Andrade">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.drjames.com.br/">
+    <meta property="og:title" content="Dr. James Andrade - Veterinário Domiciliar em Campo Grande MS">
+    <meta property="og:description" content="Atendimento veterinário domiciliar 24h. Cuidado com seu pet no conforto de casa. Agende sua consulta!">
+    <meta property="og:image" content="https://www.drjames.com.br/images/hero-image.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.drjames.com.br/">
+    <meta property="twitter:title" content="Dr. James Andrade - Veterinário Domiciliar">
+    <meta property="twitter:description" content="Atendimento veterinário domiciliar 24h em Campo Grande MS">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.drjames.com.br/">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" as="style">
+    <link rel="preload" href="css/styles.css" as="style">
+    
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Veterinarian",
+      "name": "Dr. James Andrade",
+      "image": "https://www.drjames.com.br/images/logo.png",
+      "description": "Atendimento veterinário domiciliar 24 horas em Campo Grande, MS",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Campo Grande",
+        "addressRegion": "MS",
+        "addressCountry": "BR"
+      },
+      "telephone": "+55-67-99943-4907",
+      "email": "jamesbarbosaandrade@gmail.com",
+      "openingHours": "Mo-Su 00:00-23:59",
+      "priceRange": "$$",
+      "url": "https://www.drjames.com.br"
+    }
+    </script>
+    
+    <!-- Estilos do Botão WhatsApp -->
+    <style>
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            cursor: pointer;
+            z-index: 9999;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+            }
+            50% {
+                box-shadow: 0 4px 20px rgba(37, 211, 102, 0.6);
+            }
+            100% {
+                box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+            }
+        }
+
+        .whatsapp-float:hover {
+            background-color: #128C7E;
+            transform: scale(1.1);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+            animation: none;
+        }
+
+        .whatsapp-float i {
+            font-size: 32px;
+            color: white;
+        }
+
+        .whatsapp-float::before {
+            content: "Fale conosco!";
+            position: absolute;
+            right: 70px;
+            background-color: #fff;
+            color: #333;
+            padding: 8px 12px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            font-size: 14px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+        }
+
+        .whatsapp-float:hover::before {
+            opacity: 1;
+        }
+
+        /* Estilos para mensagem de sucesso */
+        .success-message {
+            display: none;
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            text-align: center;
+            animation: slideIn 0.3s ease;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .submit-btn {
+            position: relative;
+        }
+
+        .submit-btn.loading {
+            pointer-events: none;
+            opacity: 0.7;
+        }
+
+        .submit-btn.loading::after {
+            content: "";
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            top: 50%;
+            left: 50%;
+            margin-left: -8px;
+            margin-top: -8px;
+            border: 2px solid #ffffff;
+            border-radius: 50%;
+            border-top-color: transparent;
+            animation: spinner 0.6s linear infinite;
+        }
+
+        @keyframes spinner {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Urgência no banner */
+        .ebook-banner {
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .whatsapp-float {
+                width: 55px;
+                height: 55px;
+                bottom: 15px;
+                right: 15px;
+            }
+
+            .whatsapp-float i {
+                font-size: 28px;
+            }
+
+            .whatsapp-float::before {
+                display: none;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Banner E-book -->
     <div class="ebook-banner">
         <div class="container">
-            <a href="#ebook">E-book Gratuito - "Guia para pais de Pets de primeira viagem!" - Clique aqui para download!</a>
+            <a href="#ebook">🎁 E-book Gratuito - "Guia para pais de Pets de primeira viagem!" - Baixe Agora!</a>
         </div>
     </div>
 
@@ -20,18 +228,18 @@
     <header>
         <div class="container header-container">
             <div class="logo">
-                <img src="images/logo.png" alt="Dr. James Andrade Logo">
+                <img src="images/logo.png" alt="Logo Dr. James Andrade - Veterinário Domiciliar Campo Grande MS">
                 <h1>Dr. James Andrade</h1>
             </div>
-            <nav>
+            <nav aria-label="Menu principal">
                 <ul>
-                    <li><a href="index.html">Página Inicial</a></li>
+                    <li><a href="index.html" aria-current="page">Página Inicial</a></li>
                     <li><a href="graduacao.html">Graduação</a></li>
                     <li><a href="servicos.html">Serviços</a></li>
                     <li><a href="cuidados.html">Cuidados</a></li>
                     <li><a href="#contato" class="cta-button">Agendar Consulta</a></li>
                 </ul>
-                <button class="mobile-menu-btn">
+                <button class="mobile-menu-btn" aria-label="Abrir menu de navegação">
                     <i class="fas fa-bars"></i>
                 </button>
             </nav>
@@ -39,7 +247,7 @@
     </header>
 
     <!-- Menu Mobile -->
-    <div class="mobile-menu">
+    <nav class="mobile-menu" aria-label="Menu mobile">
         <ul>
             <li><a href="index.html">Página Inicial</a></li>
             <li><a href="graduacao.html">Graduação</a></li>
@@ -47,18 +255,18 @@
             <li><a href="cuidados.html">Cuidados</a></li>
             <li><a href="#contato">Agendar Consulta</a></li>
         </ul>
-    </div>
+    </nav>
 
     <!-- Hero Section -->
     <section class="hero">
         <div class="container hero-content">
             <div class="hero-text animate">
-                <h2>Bem-vindo ao Atendimento Veterinário Domiciliar do Dr. James!</h2>
-                <p>Ofereço cuidados veterinários de alta qualidade diretamente no conforto do seu lar. Minha missão é proporcionar saúde e bem-estar aos seus animais de estimação com atendimento personalizado e humanizado.</p>
-                <a href="#contato" class="cta-button">Agendar Consulta</a>
+                <h2>Atendimento Veterinário Domiciliar 24 Horas em Campo Grande</h2>
+                <p>Cuidados veterinários de alta qualidade no conforto do seu lar. Consultas, vacinação e tratamentos sem estresse para seu pet. Atendimento personalizado e humanizado com mais de 6 anos de experiência.</p>
+                <a href="#contato" class="cta-button">📞 Agendar Consulta Agora</a>
             </div>
             <div class="hero-image animate delay-1">
-                <img src="images/hero-image.jpg?v=2" alt="Dr. James com um pet">
+                <img src="images/hero-image.jpg?v=2" alt="Dr. James Andrade atendendo pet em domicílio - Veterinário em Campo Grande MS">
             </div>
         </div>
     </section>
@@ -67,29 +275,30 @@
     <section class="diferencial">
         <div class="container">
             <div class="diferencial-title animate">
-                <h2>Por que Escolher o Atendimento Domiciliar?</h2>
+                <h2>Por que Escolher o Atendimento Veterinário Domiciliar?</h2>
+                <p>Seu pet merece o melhor cuidado, com zero estresse e máximo conforto</p>
             </div>
             <div class="cards-container">
                 <div class="card animate delay-1">
                     <div class="card-icon">
                         <i class="fas fa-home"></i>
                     </div>
-                    <h3>Conveniência e Comodidade</h3>
-                    <p>Sem precisar sair de casa, seu pet recebe atendimento de qualidade.</p>
+                    <h3>Conveniência Total</h3>
+                    <p>Sem precisar sair de casa, seu pet recebe atendimento veterinário profissional de qualidade. Economize tempo e evite deslocamentos.</p>
                 </div>
                 <div class="card animate delay-2">
                     <div class="card-icon">
                         <i class="fas fa-heart"></i>
                     </div>
-                    <h3>Redução de Estresse</h3>
-                    <p>Evite o estresse de transportes e salas de espera para seus animais.</p>
+                    <h3>Zero Estresse</h3>
+                    <p>Evite o estresse de transportes, barulhos e salas de espera lotadas. Seu animal fica calmo no ambiente familiar.</p>
                 </div>
                 <div class="card animate delay-3">
                     <div class="card-icon">
                         <i class="fas fa-user-md"></i>
                     </div>
-                    <h3>Atendimento Personalizado</h3>
-                    <p>Cada visita é dedicada exclusivamente ao seu animal.</p>
+                    <h3>Atendimento Exclusivo</h3>
+                    <p>Cada visita é dedicada 100% ao seu animal. Tempo de qualidade para diagnóstico preciso e tratamento personalizado.</p>
                 </div>
             </div>
         </div>
@@ -99,36 +308,37 @@
     <section class="services">
         <div class="container">
             <div class="services-title animate">
-                <h2>Nossos Serviços</h2>
+                <h2>Serviços Veterinários Domiciliares</h2>
+                <p>Atendimento completo para a saúde do seu pet</p>
             </div>
             <div class="services-grid">
                 <div class="service-item animate delay-1">
                     <div class="service-image">
-                        <img src="images/service-consulta.jpg" alt="Consulta Veterinária">
+                        <img src="images/service-consulta.jpg" alt="Consulta veterinária domiciliar em Campo Grande">
                     </div>
                     <div class="service-content">
-                        <h3>Consulta</h3>
-                        <p>Avaliação completa da saúde do seu pet no conforto do seu lar.</p>
+                        <h3>Consulta Veterinária</h3>
+                        <p>Avaliação completa da saúde do seu pet: exame físico, orientações e diagnóstico no conforto do seu lar.</p>
                         <a href="servicos.html" class="cta-button">Saiba Mais</a>
                     </div>
                 </div>
                 <div class="service-item animate delay-2">
                     <div class="service-image">
-                        <img src="images/service-vacinacao.jpg" alt="Vacinação">
+                        <img src="images/service-vacinacao.jpg" alt="Vacinação de pets em domicílio Campo Grande">
                     </div>
                     <div class="service-content">
-                        <h3>Vacinação</h3>
-                        <p>Mantenha as vacinas do seu pet em dia sem sair de casa.</p>
+                        <h3>Vacinação Domiciliar</h3>
+                        <p>Mantenha as vacinas do seu pet em dia sem sair de casa. Protocolo completo com segurança e conforto.</p>
                         <a href="servicos.html" class="cta-button">Saiba Mais</a>
                     </div>
                 </div>
                 <div class="service-item animate delay-3">
                     <div class="service-image">
-                        <img src="images/service-tratamento.jpg" alt="Tratamento">
+                        <img src="images/service-tratamento.jpg" alt="Tratamento veterinário em casa Campo Grande MS">
                     </div>
                     <div class="service-content">
-                        <h3>Tratamento</h3>
-                        <p>Tratamento de patologias diagnosticadas, com acompanhamento.</p>
+                        <h3>Tratamento e Acompanhamento</h3>
+                        <p>Tratamento de patologias diagnosticadas com acompanhamento regular e suporte contínuo para recuperação.</p>
                         <a href="servicos.html" class="cta-button">Saiba Mais</a>
                     </div>
                 </div>
@@ -140,13 +350,13 @@
     <section class="about">
         <div class="container about-container">
             <div class="about-image animate">
-                <img src="images/about-image.jpg" alt="Dr. James Andrade">
+                <img src="images/about-image.jpg" alt="Dr. James Andrade - Médico Veterinário CRMV MS 6923">
             </div>
             <div class="about-content animate delay-1">
-                <h2>Sobre Dr. James</h2>
-                <p>Olá! Sou o Dr. James, médico veterinário com 6 anos de experiência em cuidados animais. Formado pela Uniderp, concentrei-me em atendimento clínico e emergências veterinárias.</p>
-                <p>Meu objetivo é proporcionar um serviço prático e confortável, trazendo a clínica veterinária até você. Sou Responsável Técnico do Canil Tucky Bulldogs e possuo pós-graduação em Clínica e Cirúrgica de Pequenos Animais.</p>
-                <p>Acredito que o atendimento domiciliar proporciona menos estresse para os pets e mais comodidade para os tutores, resultando em uma experiência mais positiva para todos.</p>
+                <h2>Sobre Dr. James Andrade</h2>
+                <p><strong>Médico Veterinário CRMV/MS 6923</strong> com mais de 6 anos de experiência em atendimento clínico e emergências veterinárias. Formado pela Uniderp e pós-graduado em Clínica e Cirúrgica de Pequenos Animais.</p>
+                <p>Meu objetivo é proporcionar um serviço prático e confortável, trazendo a clínica veterinária até você. Como Responsável Técnico do Canil Tucky Bulldogs, tenho experiência especializada no cuidado de diferentes raças.</p>
+                <p><strong>Acredito que o atendimento domiciliar proporciona menos estresse para os pets e mais comodidade para os tutores</strong>, resultando em uma experiência mais positiva para todos e melhores resultados no tratamento.</p>
                 <a href="graduacao.html" class="cta-button">Ver Formação Completa</a>
             </div>
         </div>
@@ -156,7 +366,8 @@
     <section id="contato" class="contact">
         <div class="container">
             <div class="contact-title animate">
-                <h2>Entre em Contato</h2>
+                <h2>Agende sua Consulta Domiciliar</h2>
+                <p>Atendimento 24 horas, todos os dias da semana</p>
             </div>
             <div class="contact-container">
                 <div class="contact-info animate delay-1">
@@ -166,8 +377,8 @@
                             <i class="fas fa-phone"></i>
                         </div>
                         <div class="contact-text">
-                            <h4>Telefone</h4>
-                            <p>(67) 99943-4907</p>
+                            <h4>WhatsApp / Telefone</h4>
+                            <p><a href="tel:+5567999434907">(67) 99943-4907</a></p>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -176,7 +387,7 @@
                         </div>
                         <div class="contact-text">
                             <h4>E-mail</h4>
-                            <p>jamesbarbosaandrade@gmail.com</p>
+                            <p><a href="mailto:jamesbarbosaandrade@gmail.com">jamesbarbosaandrade@gmail.com</a></p>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -185,7 +396,7 @@
                         </div>
                         <div class="contact-text">
                             <h4>Área de Atendimento</h4>
-                            <p>Campo Grande - MS</p>
+                            <p>Campo Grande - MS e região</p>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -194,29 +405,40 @@
                         </div>
                         <div class="contact-text">
                             <h4>Horário de Atendimento</h4>
-                            <p>24 horas - Todos os dias</p>
+                            <p><strong>24 horas - Todos os dias</strong></p>
+                            <p style="font-size: 0.9em; margin-top: 5px;">Inclusive feriados e finais de semana</p>
                         </div>
                     </div>
                 </div>
                 <div class="contact-form animate delay-2">
+                    <h3>Ou envie sua mensagem</h3>
                     <form id="contact-form">
                         <div class="form-group">
-                            <label for="name">Nome</label>
-                            <input type="text" id="name" name="name" required>
+                            <label for="name">Nome completo *</label>
+                            <input type="text" id="name" name="name" required placeholder="Seu nome">
                         </div>
                         <div class="form-group">
-                            <label for="email">E-mail</label>
-                            <input type="email" id="email" name="email" required>
+                            <label for="email">E-mail *</label>
+                            <input type="email" id="email" name="email" required placeholder="seu@email.com">
                         </div>
                         <div class="form-group">
-                            <label for="phone">Telefone</label>
-                            <input type="tel" id="phone" name="phone" required>
+                            <label for="phone">WhatsApp / Telefone *</label>
+                            <input type="tel" id="phone" name="phone" required placeholder="(67) 99999-9999">
                         </div>
                         <div class="form-group">
-                            <label for="message">Mensagem</label>
-                            <textarea id="message" name="message" required></textarea>
+                            <label for="pet">Nome e espécie do pet</label>
+                            <input type="text" id="pet" name="pet" placeholder="Ex: Rex - Cachorro">
                         </div>
-                        <button type="submit" class="submit-btn">Enviar Mensagem</button>
+                        <div class="form-group">
+                            <label for="message">Descreva o motivo do contato *</label>
+                            <textarea id="message" name="message" required placeholder="Conte um pouco sobre o que seu pet precisa..."></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            <span>Enviar Mensagem</span>
+                        </button>
+                        <div class="success-message" id="success-message">
+                            ✅ Mensagem enviada com sucesso! Entraremos em contato em breve.
+                        </div>
                     </form>
                 </div>
             </div>
@@ -227,16 +449,18 @@
     <section id="ebook" class="ebook-section">
         <div class="container">
             <div class="ebook-content">
-                <h2>E-book Gratuito</h2>
-                <h3>"Guia para pais de Pets de primeira viagem!"</h3>
+                <h2>🎁 E-book Gratuito</h2>
+                <h3>"Guia Completo para Pais de Pets de Primeira Viagem"</h3>
                 <p>Baixe nosso e-book gratuito e aprenda tudo o que você precisa saber para cuidar do seu pet da melhor forma possível.</p>
-                <p>
-                    .
-                </p>
-                <a href="https://drive.google.com/file/d/1lcy6IgL950UA1l54wT9R67NAgdRmJ6_a/view?usp=drive_link" class="cta-button" download>Baixar E-book</a>
-                <p>
-                    .
-                </p>
+                <p><strong>Você vai aprender:</strong></p>
+                <ul style="text-align: left; max-width: 500px; margin: 15px auto;">
+                    <li>✓ Primeiros cuidados com filhotes</li>
+                    <li>✓ Calendário de vacinação completo</li>
+                    <li>✓ Alimentação adequada por idade</li>
+                    <li>✓ Sinais de alerta de doenças</li>
+                    <li>✓ E muito mais!</li>
+                </ul>
+                <a href="https://drive.google.com/file/d/1lcy6IgL950UA1l54wT9R67NAgdRmJ6_a/view?usp=drive_link" class="cta-button" target="_blank" rel="noopener">📥 Baixar E-book Grátis</a>
             </div>
         </div>
     </section>
@@ -247,11 +471,12 @@
             <div class="footer-col">
                 <h3>Dr. James Andrade</h3>
                 <p>Médico Veterinário</p>
-                <p>CRMV/MS 6923</p>
+                <p><strong>CRMV/MS 6923</strong></p>
+                <p style="margin-top: 10px; font-size: 0.9em;">Atendimento Veterinário Domiciliar<br>Campo Grande - MS</p>
                 <div class="social-links">
-                    <a href="https://www.facebook.com/james.andrade.41251/" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.instagram.com/james.medvet?igsh=YzljYTk1ODg3Zg%3D%3D" class="social-icon"><i class="fab fa-instagram"></i></a>
-                    <a href="https://wa.me/67999434907" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.facebook.com/james.andrade.41251/" class="social-icon" aria-label="Facebook Dr. James"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/james.medvet?igsh=YzljYTk1ODg3Zg%3D%3D" class="social-icon" aria-label="Instagram Dr. James"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/5567999434907" class="social-icon" aria-label="WhatsApp Dr. James"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
             <div class="footer-col">
@@ -261,34 +486,96 @@
                     <li><a href="graduacao.html">Graduação</a></li>
                     <li><a href="servicos.html">Serviços</a></li>
                     <li><a href="cuidados.html">Cuidados</a></li>
+                    <li><a href="#ebook">E-book Grátis</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h3>Serviços</h3>
                 <ul>
-                    <li><a href="servicos.html">Consulta</a></li>
+                    <li><a href="servicos.html">Consulta Domiciliar</a></li>
                     <li><a href="servicos.html">Vacinação</a></li>
                     <li><a href="servicos.html">Tratamento</a></li>
                     <li><a href="servicos.html">Exames</a></li>
+                    <li><a href="servicos.html">Emergências 24h</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h3>Contato</h3>
-                <p><i class="fas fa-phone"></i> (67) 99943-4907</p>
-                <p><i class="fas fa-envelope"></i> jamesbarbosaandrade@gmail.com</p>
+                <p><i class="fas fa-phone"></i> <a href="tel:+5567999434907">(67) 99943-4907</a></p>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:jamesbarbosaandrade@gmail.com">jamesbarbosaandrade@gmail.com</a></p>
                 <p><i class="fas fa-map-marker-alt"></i> Campo Grande - MS</p>
+                <p style="margin-top: 10px;"><i class="fas fa-clock"></i> <strong>Atendimento 24 horas</strong></p>
             </div>
         </div>
         <div class="copyright">
-            <p>&copy; 2025 Dr. James Andrade. Todos os direitos reservados.</p>
+            <p>&copy; 2025 Dr. James Andrade - CRMV/MS 6923. Todos os direitos reservados.</p>
         </div>
     </footer>
 
     <!-- Botão Voltar ao Topo -->
-    <a href="#" id="scroll-top" class="scroll-top">
+    <a href="#" id="scroll-top" class="scroll-top" aria-label="Voltar ao topo">
         <i class="fas fa-arrow-up"></i>
     </a>
 
+    <!-- Botão Flutuante WhatsApp -->
+    <a href="https://wa.me/5567999434907?text=Olá%20Dr.%20James!%20Gostaria%20de%20agendar%20uma%20consulta%20veterinária%20domiciliar.%20Pode%20me%20ajudar?" 
+       class="whatsapp-float" 
+       target="_blank" 
+       rel="noopener noreferrer"
+       aria-label="Fale conosco pelo WhatsApp - Atendimento 24 horas">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
     <script src="js/main.js"></script>
+    
+    <!-- Script para envio do formulário via WhatsApp -->
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const btn = this.querySelector('.submit-btn');
+            const successMsg = document.getElementById('success-message');
+            
+            // Adiciona loading
+            btn.classList.add('loading');
+            btn.querySelector('span').textContent = 'Enviando...';
+            
+            // Coleta os dados
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const pet = document.getElementById('pet').value;
+            const message = document.getElementById('message').value;
+            
+            // Monta a mensagem para WhatsApp
+            let whatsappMessage = `*Nova Solicitação de Consulta*%0A%0A`;
+            whatsappMessage += `*Nome:* ${encodeURIComponent(name)}%0A`;
+            whatsappMessage += `*E-mail:* ${encodeURIComponent(email)}%0A`;
+            whatsappMessage += `*Telefone:* ${encodeURIComponent(phone)}%0A`;
+            if(pet) whatsappMessage += `*Pet:* ${encodeURIComponent(pet)}%0A`;
+            whatsappMessage += `*Mensagem:* ${encodeURIComponent(message)}`;
+            
+            // Simula envio e abre WhatsApp
+            setTimeout(() => {
+                // Abre WhatsApp
+                window.open(`https://wa.me/5567999434907?text=${whatsappMessage}`, '_blank');
+                
+                // Remove loading
+                btn.classList.remove('loading');
+                btn.querySelector('span').textContent = 'Enviar Mensagem';
+                
+                // Mostra mensagem de sucesso
+                successMsg.classList.add('show');
+                
+                // Limpa o formulário
+                this.reset();
+                
+                // Remove mensagem após 5 segundos
+                setTimeout(() => {
+                    successMsg.classList.remove('show');
+                }, 5000);
+            }, 1000);
+        });
+    </script>
 </body>
 </html>
