@@ -3,16 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Graduação - Dr. James Andrade</title>
+    
+    <!-- SEO Meta Tags -->
+    <title>Formação e Qualificações - Dr. James Andrade | Veterinário CRMV/MS 6923</title>
+    <meta name="description" content="Conheça a formação acadêmica e experiência profissional do Dr. James Andrade. Pós-graduado em Clínica e Cirúrgica de Pequenos Animais. CRMV/MS 6923.">
+    <meta name="keywords" content="veterinário qualificado, formação veterinária, pós-graduação veterinária, Dr. James Andrade">
+    
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Estilos Menu Mobile e WhatsApp -->
+    <style>
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 280px;
+            height: 100vh;
+            background-color: #fff;
+            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 10000;
+            transition: right 0.3s ease;
+            padding-top: 80px;
+            overflow-y: auto;
+        }
+        .mobile-menu.active { right: 0; }
+        .mobile-menu ul { list-style: none; padding: 0; margin: 0; }
+        .mobile-menu ul li { border-bottom: 1px solid #f0f0f0; }
+        .mobile-menu ul li a {
+            display: block;
+            padding: 18px 25px;
+            color: #333;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        .mobile-menu ul li a:hover {
+            background-color: #f8f9fa;
+            color: #4CAF50;
+            padding-left: 30px;
+        }
+        body.menu-open { overflow: hidden; }
+        body.menu-open::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+        }
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #333;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 10001;
+        }
+        @media (max-width: 768px) {
+            .mobile-menu-btn { display: block; }
+        }
+        
+        /* WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            cursor: pointer;
+            z-index: 9999;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4); }
+            50% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.6); }
+        }
+        .whatsapp-float:hover {
+            background-color: #128C7E;
+            transform: scale(1.1);
+            animation: none;
+        }
+        .whatsapp-float i {
+            font-size: 32px;
+            color: white;
+        }
+        .whatsapp-float::before {
+            content: "Fale conosco!";
+            position: absolute;
+            right: 70px;
+            background-color: #fff;
+            color: #333;
+            padding: 8px 12px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            font-size: 14px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+        }
+        .whatsapp-float:hover::before { opacity: 1; }
+        @media (max-width: 768px) {
+            .whatsapp-float { width: 55px; height: 55px; bottom: 15px; right: 15px; }
+            .whatsapp-float i { font-size: 28px; }
+            .whatsapp-float::before { display: none; }
+        }
+    </style>
 </head>
 <body>
     <!-- Banner E-book -->
     <div class="ebook-banner">
         <div class="container">
-            <a href="index.html#ebook">E-book Gratuito - "Guia para pais de Pets de primeira viagem!" - Clique aqui para download!</a>
+            <a href="index.html#ebook">🎁 E-book Gratuito - "Guia para pais de Pets de primeira viagem!" - Baixe Agora!</a>
         </div>
     </div>
 
@@ -23,15 +142,15 @@
                 <img src="images/logo.png" alt="Dr. James Andrade Logo">
                 <h1>Dr. James Andrade</h1>
             </div>
-            <nav>
+            <nav aria-label="Menu principal">
                 <ul>
                     <li><a href="index.html">Página Inicial</a></li>
-                    <li><a href="graduacao.html">Graduação</a></li>
+                    <li><a href="graduacao.html" aria-current="page">Graduação</a></li>
                     <li><a href="servicos.html">Serviços</a></li>
                     <li><a href="cuidados.html">Cuidados</a></li>
                     <li><a href="index.html#contato" class="cta-button">Agendar Consulta</a></li>
                 </ul>
-                <button class="mobile-menu-btn">
+                <button class="mobile-menu-btn" aria-label="Abrir menu">
                     <i class="fas fa-bars"></i>
                 </button>
             </nav>
@@ -39,7 +158,7 @@
     </header>
 
     <!-- Menu Mobile -->
-    <div class="mobile-menu">
+    <nav class="mobile-menu" aria-label="Menu mobile">
         <ul>
             <li><a href="index.html">Página Inicial</a></li>
             <li><a href="graduacao.html">Graduação</a></li>
@@ -47,90 +166,178 @@
             <li><a href="cuidados.html">Cuidados</a></li>
             <li><a href="index.html#contato">Agendar Consulta</a></li>
         </ul>
-    </div>
+    </nav>
 
     <!-- Page Header -->
     <section class="page-header">
         <div class="container">
-            <h1>Graduação</h1>
-            <p>Formação e Qualificações Profissionais</p>
+            <h1>Formação e Qualificações Profissionais</h1>
+            <p>Experiência e conhecimento a serviço da saúde do seu pet</p>
         </div>
     </section>
 
     <!-- Education Section -->
     <section class="education">
         <div class="container">
+            <div class="education-intro">
+                <h2>Dr. James Barbosa Andrade</h2>
+                <p><strong>CRMV/MS 6923</strong></p>
+                <p>Médico Veterinário com mais de 6 anos de experiência em atendimento clínico e cirúrgico de pequenos animais. Responsável Técnico do Canil Tucky Bulldogs e especialista em atendimento domiciliar.</p>
+            </div>
+
             <div class="education-list">
+                <h2>Formação Acadêmica</h2>
+                
                 <div class="education-item">
-                    <h3>Ciências da Computação</h3>
-                    <p>UNAES 2007</p>
+                    <div class="education-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="education-content">
+                        <h3>Pós-graduação em Clínica e Cirúrgica de Pequenos Animais</h3>
+                        <p><strong>Novoeste</strong> - 2022</p>
+                        <p>Especialização em diagnóstico, tratamento clínico e procedimentos cirúrgicos em cães e gatos.</p>
+                    </div>
                 </div>
+
                 <div class="education-item">
-                    <h3>Medicina Veterinária</h3>
-                    <p>Uniderp 2018</p>
+                    <div class="education-icon">
+                        <i class="fas fa-stethoscope"></i>
+                    </div>
+                    <div class="education-content">
+                        <h3>Medicina Veterinária</h3>
+                        <p><strong>Uniderp</strong> - 2018</p>
+                        <p>Graduação completa com ênfase em clínica e cirurgia de pequenos animais.</p>
+                    </div>
                 </div>
+
                 <div class="education-item">
-                    <h3>Cirurgia oncológica e Plástica reparatória</h3>
-                    <p>Qualittas 2019</p>
+                    <div class="education-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <div class="education-content">
+                        <h3>Ciências da Computação</h3>
+                        <p><strong>UNAES</strong> - 2007</p>
+                        <p>Formação complementar em tecnologia da informação.</p>
+                    </div>
                 </div>
+            </div>
+
+            <div class="education-list">
+                <h2>Especializações e Cursos</h2>
+                
                 <div class="education-item">
-                    <h3>Inseminação Artificial (IA e IATF)</h3>
-                    <p>Uniderp 2019</p>
+                    <div class="education-icon">
+                        <i class="fas fa-briefcase-medical"></i>
+                    </div>
+                    <div class="education-content">
+                        <h3>Responsabilidade Técnica</h3>
+                        <p><strong>CRMV/MS</strong> - 2019</p>
+                        <p>Responsável Técnico do Canil Tucky Bulldogs.</p>
+                    </div>
                 </div>
+
                 <div class="education-item">
-                    <h3>Responsabilidade técnica</h3>
-                    <p>CRMV/MS 2019</p>
+                    <div class="education-icon">
+                        <i class="fas fa-syringe"></i>
+                    </div>
+                    <div class="education-content">
+                        <h3>Cirurgia Oncológica e Plástica Reparatória</h3>
+                        <p><strong>Qualittas</strong> - 2019</p>
+                        <p>Técnicas cirúrgicas avançadas em oncologia e reconstrução.</p>
+                    </div>
                 </div>
+
                 <div class="education-item">
-                    <h3>Pós-graduação Clínica e Cirúrgica de Pequenos Animais</h3>
-                    <p>Novoeste 2022</p>
+                    <div class="education-icon">
+                        <i class="fas fa-dna"></i>
+                    </div>
+                    <div class="education-content">
+                        <h3>Inseminação Artificial (IA e IATF)</h3>
+                        <p><strong>Uniderp</strong> - 2019</p>
+                        <p>Técnicas de reprodução assistida em animais.</p>
+                    </div>
                 </div>
+
                 <div class="education-item">
-                    <h3>Perícia Judicial</h3>
-                    <p>Curso Beta 2022</p>
+                    <div class="education-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <div class="education-content">
+                        <h3>Perícia Judicial</h3>
+                        <p><strong>Curso Beta</strong> - 2022</p>
+                        <p>Capacitação em perícia técnica veterinária.</p>
+                    </div>
                 </div>
             </div>
 
             <div class="events-section">
                 <div class="events-title">
-                    <h2>Palestras e Eventos</h2>
+                    <h2>📚 Palestras e Eventos de Atualização</h2>
+                    <p>Compromisso com a educação continuada e atualização profissional constante</p>
                 </div>
                 <div class="events-list">
                     <div class="event-item">
-                        <h3>30/04/2020 – Cardiopatia do cão idoso: o que devemos saber?</h3>
-                        <p>(Lucas de Carvalho, VetSmart)</p>
+                        <h3>🫀 Cardiopatia do cão idoso: o que devemos saber?</h3>
+                        <p><strong>30/04/2020</strong> - Lucas de Carvalho, VetSmart</p>
                     </div>
                     <div class="event-item">
-                        <h3>05/05/2020 – Em tempos de alimentação natural, por que prescrever ração?</h3>
-                        <p>(Manuela Ficher, VetSmart)</p>
+                        <h3>🥗 Em tempos de alimentação natural, por que prescrever ração?</h3>
+                        <p><strong>05/05/2020</strong> - Manuela Ficher, VetSmart</p>
                     </div>
                     <div class="event-item">
-                        <h3>06/05/2020 – Como manter a lucratividade e produtividade na agropecuária diante do cenário atual</h3>
-                        <p>(Thiago Carvalho, Verônica Schvartzaid e Luciano Morgan, VetSmart)</p>
+                        <h3>🌾 Lucratividade e produtividade na agropecuária</h3>
+                        <p><strong>06/05/2020</strong> - Thiago Carvalho, Verônica Schvartzaid e Luciano Morgan, VetSmart</p>
                     </div>
                     <div class="event-item">
-                        <h3>07/05/2020 – Manejo de cães e gatos durante a quarentena</h3>
-                        <p>(Marina Snitcofsky, VetSmart)</p>
+                        <h3>🏠 Manejo de cães e gatos durante a quarentena</h3>
+                        <p><strong>07/05/2020</strong> - Marina Snitcofsky, VetSmart</p>
                     </div>
                     <div class="event-item">
-                        <h3>11/05/2020 – Telemedicina: implicações técnicas no cenário atual da medicina veterinária</h3>
-                        <p>(Renata Arruda, VetSmart)</p>
+                        <h3>💻 Telemedicina: implicações técnicas na medicina veterinária</h3>
+                        <p><strong>11/05/2020</strong> - Renata Arruda, VetSmart</p>
                     </div>
                     <div class="event-item">
-                        <h3>12/05/2020 – Programa de prevenção de doenças periodontais</h3>
-                        <p>(Marcelo Rosa, VetSmart)</p>
+                        <h3>🦷 Programa de prevenção de doenças periodontais</h3>
+                        <p><strong>12/05/2020</strong> - Marcelo Rosa, VetSmart</p>
                     </div>
                     <div class="event-item">
-                        <h3>14/05/2020 – Atualizações no Diagnóstico de FIV e FELV</h3>
-                        <p>(Fernanda Amorim, VetSmart)</p>
+                        <h3>🔬 Atualizações no Diagnóstico de FIV e FELV</h3>
+                        <p><strong>14/05/2020</strong> - Fernanda Amorim, VetSmart</p>
                     </div>
                     <div class="event-item">
-                        <h3>19/05/2020 – Profissionais da Saúde – Protocolo de manejo clínico de corona vírus</h3>
-                        <p>(Ministério da Saúde)</p>
+                        <h3>🩺 Profissionais da Saúde - Protocolo de manejo clínico de coronavírus</h3>
+                        <p><strong>19/05/2020</strong> - Ministério da Saúde</p>
                     </div>
                 </div>
                 <div class="events-more">
-                    <p>E muitos outros eventos e cursos de atualização profissional...</p>
+                    <p><strong>E muitos outros eventos e cursos de atualização profissional...</strong></p>
+                    <p>Dr. James mantém-se constantemente atualizado com as últimas tendências e técnicas da medicina veterinária, participando regularmente de congressos, workshops e cursos de especialização.</p>
+                </div>
+            </div>
+
+            <div class="qualifications-summary">
+                <h2>Diferenciais Profissionais</h2>
+                <div class="qualifications-grid">
+                    <div class="qualification-item">
+                        <i class="fas fa-certificate"></i>
+                        <h3>6+ Anos de Experiência</h3>
+                        <p>Ampla vivência em atendimento clínico e cirúrgico</p>
+                    </div>
+                    <div class="qualification-item">
+                        <i class="fas fa-award"></i>
+                        <h3>Pós-Graduado</h3>
+                        <p>Especialização em Clínica e Cirurgia</p>
+                    </div>
+                    <div class="qualification-item">
+                        <i class="fas fa-dog"></i>
+                        <h3>Responsável Técnico</h3>
+                        <p>Canil Tucky Bulldogs desde 2019</p>
+                    </div>
+                    <div class="qualification-item">
+                        <i class="fas fa-book-medical"></i>
+                        <h3>Educação Continuada</h3>
+                        <p>Participação constante em cursos e eventos</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -141,13 +348,7 @@
         <div class="container">
             <h2>Experiência e Conhecimento a Serviço do Seu Pet</h2>
             <p>Conte com um profissional qualificado e em constante atualização para cuidar da saúde do seu animal.</p>
-            <p>
-                .
-            </p>
-            <a href="index.html#contato" class="cta-button">Agendar Consulta</a>
-            <p>
-                .
-            </p>
+            <a href="index.html#contato" class="cta-button">📞 Agendar Consulta</a>
         </div>
     </section>
 
@@ -157,11 +358,12 @@
             <div class="footer-col">
                 <h3>Dr. James Andrade</h3>
                 <p>Médico Veterinário</p>
-                <p>CRMV/MS 6923</p>
+                <p><strong>CRMV/MS 6923</strong></p>
+                <p style="margin-top: 10px; font-size: 0.9em;">Atendimento Veterinário Domiciliar<br>Campo Grande - MS</p>
                 <div class="social-links">
-                   <a href="https://www.facebook.com/james.andrade.41251/" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.instagram.com/james.medvet?igsh=YzljYTk1ODg3Zg%3D%3D" class="social-icon"><i class="fab fa-instagram"></i></a>
-                    <a href="https://wa.me/67999434907" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.facebook.com/james.andrade.41251/" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/james.medvet?igsh=YzljYTk1ODg3Zg%3D%3D" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/5567999434907" class="social-icon" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
             <div class="footer-col">
@@ -171,6 +373,7 @@
                     <li><a href="graduacao.html">Graduação</a></li>
                     <li><a href="servicos.html">Serviços</a></li>
                     <li><a href="cuidados.html">Cuidados</a></li>
+                    <li><a href="index.html#ebook">E-book Grátis</a></li>
                 </ul>
             </div>
             <div class="footer-col">
@@ -184,21 +387,70 @@
             </div>
             <div class="footer-col">
                 <h3>Contato</h3>
-                <p><i class="fas fa-phone"></i> (67) 99943-4907</p>
-                <p><i class="fas fa-envelope"></i> jamesbarbosaandrade@gmail.com</p>
+                <p><i class="fas fa-phone"></i> <a href="tel:+5567999434907">(67) 99943-4907</a></p>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:jamesbarbosaandrade@gmail.com">jamesbarbosaandrade@gmail.com</a></p>
                 <p><i class="fas fa-map-marker-alt"></i> Campo Grande - MS</p>
+                <p style="margin-top: 10px;"><i class="fas fa-clock"></i> <strong>24 horas</strong></p>
             </div>
         </div>
         <div class="copyright">
-            <p>&copy; 2025 Dr. James Andrade. Todos os direitos reservados.</p>
+            <p>&copy; 2025 Dr. James Andrade - CRMV/MS 6923. Todos os direitos reservados.</p>
         </div>
     </footer>
 
     <!-- Botão Voltar ao Topo -->
-    <a href="#" id="scroll-top" class="scroll-top">
+    <a href="#" id="scroll-top" class="scroll-top" aria-label="Voltar ao topo">
         <i class="fas fa-arrow-up"></i>
     </a>
 
+    <!-- Botão WhatsApp -->
+    <a href="https://wa.me/5567999434907?text=Olá%20Dr.%20James!%20Vi%20sua%20formação%20e%20gostaria%20de%20agendar%20uma%20consulta." 
+       class="whatsapp-float" 
+       target="_blank" 
+       rel="noopener noreferrer"
+       aria-label="Fale conosco pelo WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
     <script src="js/main.js"></script>
+    
+    <!-- Script Menu Mobile -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const body = document.body;
+            
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('active');
+                    body.classList.toggle('menu-open');
+                    const icon = this.querySelector('i');
+                    icon.classList.toggle('fa-bars');
+                    icon.classList.toggle('fa-times');
+                });
+                
+                mobileMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', function() {
+                        mobileMenu.classList.remove('active');
+                        body.classList.remove('menu-open');
+                        mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+                        mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+                    });
+                });
+                
+                document.addEventListener('click', function(e) {
+                    if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                        if (mobileMenu.classList.contains('active')) {
+                            mobileMenu.classList.remove('active');
+                            body.classList.remove('menu-open');
+                            mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+                            mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+                        }
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>

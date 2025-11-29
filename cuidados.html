@@ -3,16 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cuidados - Dr. James Andrade</title>
+    
+    <!-- SEO Meta Tags -->
+    <title>Dicas de Cuidados com Pets - Dr. James Andrade | Veterinário Campo Grande MS</title>
+    <meta name="description" content="Guia completo de cuidados com seu pet: alimentação, higiene, saúde dental, vacinação e muito mais. Orientações do Dr. James Andrade, CRMV/MS 6923.">
+    <meta name="keywords" content="cuidados com pets, saúde animal, vacinação de pets, alimentação de cães e gatos, higiene animal">
+    
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Estilos Menu Mobile e WhatsApp -->
+    <style>
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 280px;
+            height: 100vh;
+            background-color: #fff;
+            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 10000;
+            transition: right 0.3s ease;
+            padding-top: 80px;
+            overflow-y: auto;
+        }
+        .mobile-menu.active { right: 0; }
+        .mobile-menu ul { list-style: none; padding: 0; margin: 0; }
+        .mobile-menu ul li { border-bottom: 1px solid #f0f0f0; }
+        .mobile-menu ul li a {
+            display: block;
+            padding: 18px 25px;
+            color: #333;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        .mobile-menu ul li a:hover {
+            background-color: #f8f9fa;
+            color: #4CAF50;
+            padding-left: 30px;
+        }
+        body.menu-open { overflow: hidden; }
+        body.menu-open::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+        }
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #333;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 10001;
+        }
+        @media (max-width: 768px) {
+            .mobile-menu-btn { display: block; }
+        }
+        
+        /* WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            cursor: pointer;
+            z-index: 9999;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4); }
+            50% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.6); }
+        }
+        .whatsapp-float:hover {
+            background-color: #128C7E;
+            transform: scale(1.1);
+            animation: none;
+        }
+        .whatsapp-float i {
+            font-size: 32px;
+            color: white;
+        }
+        .whatsapp-float::before {
+            content: "Fale conosco!";
+            position: absolute;
+            right: 70px;
+            background-color: #fff;
+            color: #333;
+            padding: 8px 12px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            font-size: 14px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+        }
+        .whatsapp-float:hover::before { opacity: 1; }
+        @media (max-width: 768px) {
+            .whatsapp-float { width: 55px; height: 55px; bottom: 15px; right: 15px; }
+            .whatsapp-float i { font-size: 28px; }
+            .whatsapp-float::before { display: none; }
+        }
+    </style>
 </head>
 <body>
     <!-- Banner E-book -->
     <div class="ebook-banner">
         <div class="container">
-            <a href="index.html#ebook">E-book Gratuito - "Guia para pais de Pets de primeira viagem!" - Clique aqui para download!</a>
+            <a href="index.html#ebook">🎁 E-book Gratuito - "Guia para pais de Pets de primeira viagem!" - Baixe Agora!</a>
         </div>
     </div>
 
@@ -23,15 +142,15 @@
                 <img src="images/logo.png" alt="Dr. James Andrade Logo">
                 <h1>Dr. James Andrade</h1>
             </div>
-            <nav>
+            <nav aria-label="Menu principal">
                 <ul>
                     <li><a href="index.html">Página Inicial</a></li>
                     <li><a href="graduacao.html">Graduação</a></li>
                     <li><a href="servicos.html">Serviços</a></li>
-                    <li><a href="cuidados.html">Cuidados</a></li>
+                    <li><a href="cuidados.html" aria-current="page">Cuidados</a></li>
                     <li><a href="index.html#contato" class="cta-button">Agendar Consulta</a></li>
                 </ul>
-                <button class="mobile-menu-btn">
+                <button class="mobile-menu-btn" aria-label="Abrir menu">
                     <i class="fas fa-bars"></i>
                 </button>
             </nav>
@@ -39,7 +158,7 @@
     </header>
 
     <!-- Menu Mobile -->
-    <div class="mobile-menu">
+    <nav class="mobile-menu" aria-label="Menu mobile">
         <ul>
             <li><a href="index.html">Página Inicial</a></li>
             <li><a href="graduacao.html">Graduação</a></li>
@@ -47,63 +166,108 @@
             <li><a href="cuidados.html">Cuidados</a></li>
             <li><a href="index.html#contato">Agendar Consulta</a></li>
         </ul>
-    </div>
+    </nav>
 
     <!-- Page Header -->
     <section class="page-header">
         <div class="container">
-            <h1>Cuidados aos Animais</h1>
-            <p>Dicas e orientações para o bem-estar do seu pet</p>
+            <h1>Guia de Cuidados com seu Pet</h1>
+            <p>Dicas essenciais para o bem-estar e saúde do seu animal de estimação</p>
         </div>
     </section>
 
     <!-- Care Section -->
     <section class="care-section">
         <div class="container">
+            <div class="care-intro">
+                <p>Cuidar bem do seu pet vai além de oferecer carinho e atenção. Requer conhecimento sobre suas necessidades específicas de saúde, nutrição e bem-estar. Aqui você encontra orientações profissionais para proporcionar a melhor qualidade de vida ao seu animal de estimação.</p>
+            </div>
+
             <div class="care-image">
-                <img src="images/care-main.jpg" alt="Cuidados com Animais">
+                <img src="images/care-main.jpg" alt="Cuidados com Pets - Saúde Animal">
             </div>
             
             <div class="care-content">
                 <div class="care-item">
-                    <h3>1. Dicas de Cuidados Gerais</h3>
+                    <div class="care-icon">
+                        <i class="fas fa-shower"></i>
+                    </div>
+                    <h3>1. Higiene e Cuidados Gerais</h3>
                     <ul>
-                        <li><strong>Higiene:</strong> A higiene é fundamental para a saúde do seu animal. Escove o pelo regularmente para evitar nós e a acumulação de sujeira. Banhos devem ser dados conforme a necessidade da raça e tipo de pelo.</li>
-                        <li><strong>Exercício:</strong> Animais precisam de exercícios regulares para manter um peso saudável e evitar problemas comportamentais. Caminhadas, brincadeiras e atividades físicas são essenciais.</li>
-                        <li><strong>Socialização:</strong> A interação com outros animais e pessoas é crucial, especialmente para filhotes. Isso ajuda a desenvolver um comportamento equilibrado e saudável.</li>
+                        <li><strong>🧼 Higiene Regular:</strong> A higiene é fundamental para a saúde do seu animal. Escove o pelo regularmente para evitar nós e a acumulação de sujeira. Banhos devem ser dados conforme a necessidade da raça e tipo de pelo - geralmente a cada 15-30 dias para cães e menos frequente para gatos.</li>
+                        <li><strong>🏃 Exercício Físico:</strong> Animais precisam de exercícios regulares para manter um peso saudável e evitar problemas comportamentais. Caminhadas diárias, brincadeiras e atividades físicas são essenciais para o bem-estar físico e mental.</li>
+                        <li><strong>🐕 Socialização:</strong> A interação com outros animais e pessoas é crucial, especialmente para filhotes. Isso ajuda a desenvolver um comportamento equilibrado e saudável, prevenindo problemas de agressividade ou medo excessivo.</li>
+                        <li><strong>🛏️ Ambiente Adequado:</strong> Proporcione um espaço limpo, confortável e seguro para seu pet. Cama apropriada, água fresca sempre disponível e um local tranquilo para descanso são fundamentais.</li>
                     </ul>
                 </div>
                 
                 <div class="care-item">
+                    <div class="care-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
                     <h3>2. Alimentação Adequada</h3>
                     <ul>
-                        <li><strong>Ração Balanceada:</strong> Escolha uma ração de alta qualidade, formulada para a idade, peso e necessidades específicas do seu animal. Consulte um veterinário para saber qual é a melhor opção.</li>
-                        <li><strong>Hidratação:</strong> Água fresca deve estar sempre disponível. Animais desidratados podem sofrer sérios problemas de saúde.</li>
-                        <li><strong>Evitar Alimentos Tóxicos:</strong> Esteja ciente de alimentos que são tóxicos para os animais, como chocolate, cebola, uvas e abacate. Informe-se sobre quais alimentos são seguros.</li>
+                        <li><strong>🥘 Ração Balanceada:</strong> Escolha uma ração de alta qualidade, formulada para a idade, peso e necessidades específicas do seu animal. Rações premium contêm nutrientes balanceados essenciais para a saúde. Consulte um veterinário para saber qual é a melhor opção para seu pet.</li>
+                        <li><strong>💧 Hidratação:</strong> Água fresca deve estar sempre disponível. Troque a água diariamente e mantenha o recipiente limpo. Animais desidratados podem sofrer sérios problemas de saúde, especialmente renais.</li>
+                        <li><strong>⚠️ Evitar Alimentos Tóxicos:</strong> Esteja ciente de alimentos que são tóxicos para os animais, como chocolate, cebola, alho, uvas, abacate, café e produtos com xilitol. Nunca ofereça restos de comida sem consultar um veterinário.</li>
+                        <li><strong>⏰ Horários Regulares:</strong> Estabeleça horários fixos para as refeições, evitando deixar comida disponível o tempo todo. Isso ajuda no controle de peso e na digestão.</li>
+                        <li><strong>📏 Quantidade Adequada:</strong> Siga as recomendações de quantidade da embalagem ou do veterinário. Obesidade é um problema sério que afeta a qualidade de vida do animal.</li>
                     </ul>
                 </div>
                 
                 <div class="care-item">
-                    <h3>3. Cuidados Preventivos</h3>
+                    <div class="care-icon">
+                        <i class="fas fa-shield-virus"></i>
+                    </div>
+                    <h3>3. Cuidados Preventivos de Saúde</h3>
                     <ul>
-                        <li><strong>Vacinação:</strong> Mantenha a vacinação do seu animal em dia conforme as recomendações do veterinário. Vacinas ajudam a prevenir doenças graves.</li>
-                        <li><strong>Vermifugação:</strong> Realize a vermifugação regularmente para evitar parasitas internos. Siga as orientações do veterinário sobre a frequência.</li>
-                        <li><strong>Exames de Rotina:</strong> Consultas regulares ao veterinário são essenciais para detectar problemas de saúde precocemente. Exames de sangue e check-ups são recomendados.</li>
+                        <li><strong>💉 Vacinação:</strong> Mantenha a vacinação do seu animal em dia conforme as recomendações do veterinário. Vacinas ajudam a prevenir doenças graves como cinomose, parvovirose, raiva e outras enfermidades potencialmente fatais. O protocolo vacinal deve começar ainda filhote.</li>
+                        <li><strong>🪱 Vermifugação:</strong> Realize a vermifugação regularmente para evitar parasitas internos que podem causar diarreia, vômitos, perda de peso e outros problemas. Filhotes devem ser vermifugados a cada 15-30 dias até os 6 meses, depois a cada 3-6 meses.</li>
+                        <li><strong>🦟 Controle de Parasitas Externos:</strong> Use produtos contra pulgas, carrapatos e mosquitos regularmente. Esses parasitas não só causam desconforto, mas podem transmitir doenças graves como erliquiose e leishmaniose.</li>
+                        <li><strong>🩺 Exames de Rotina:</strong> Consultas regulares ao veterinário são essenciais para detectar problemas de saúde precocemente. Exames de sangue e check-ups anuais (ou semestrais para animais idosos) são altamente recomendados.</li>
+                        <li><strong>🦴 Prevenção de Doenças:</strong> Castração/esterilização previne problemas reprodutivos e comportamentais, além de reduzir riscos de certos tipos de câncer.</li>
                     </ul>
                 </div>
                 
                 <div class="care-item">
+                    <div class="care-icon">
+                        <i class="fas fa-tooth"></i>
+                    </div>
                     <h3>4. Higiene e Saúde Dental</h3>
                     <ul>
-                        <li><strong>Escovação Dental:</strong> A saúde dental é frequentemente negligenciada. Escove os dentes do seu animal regularmente para prevenir doenças gengivais e mau hálito. Existem também petiscos e brinquedos que ajudam na limpeza dental.</li>
-                        <li><strong>Limpeza de Ouvidos:</strong> Verifique os ouvidos do seu animal regularmente e limpe-os com produtos adequados, se necessário. Isso ajuda a prevenir infecções.</li>
-                        <li><strong>Corte de Unhas:</strong> O corte regular das unhas é importante para a saúde do seu animal. Unhas muito longas podem causar dor e dificuldade de locomoção.</li>
+                        <li><strong>🪥 Escovação Dental:</strong> A saúde dental é frequentemente negligenciada mas é extremamente importante. Escove os dentes do seu animal regularmente (idealmente 2-3 vezes por semana) para prevenir doenças gengivais, tártaro e mau hálito. Use sempre pasta de dentes específica para animais.</li>
+                        <li><strong>🦴 Petiscos Dentais:</strong> Existem petiscos e brinquedos que ajudam na limpeza dental mecânica, removendo resíduos e massageando as gengivas.</li>
+                        <li><strong>👂 Limpeza de Ouvidos:</strong> Verifique os ouvidos do seu animal regularmente e limpe-os com produtos adequados quando necessário. Orelhas sujas podem desenvolver infecções dolorosas, especialmente em raças de orelhas caídas.</li>
+                        <li><strong>✂️ Corte de Unhas:</strong> O corte regular das unhas é importante para a saúde e conforto do seu animal. Unhas muito longas podem causar dor, dificuldade de locomoção e até deformidades nas patas. Idealmente, devem ser aparadas mensalmente.</li>
+                        <li><strong>👁️ Limpeza dos Olhos:</strong> Limpe secreções ao redor dos olhos com gaze umedecida em soro fisiológico. Secreções excessivas podem indicar problemas que requerem atenção veterinária.</li>
                     </ul>
+                </div>
+
+                <div class="care-item">
+                    <div class="care-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>5. Sinais de Alerta - Quando Procurar o Veterinário</h3>
+                    <ul>
+                        <li>🚨 Perda de apetite por mais de 24 horas</li>
+                        <li>🚨 Vômitos ou diarreia persistentes</li>
+                        <li>🚨 Letargia ou mudanças drásticas no comportamento</li>
+                        <li>🚨 Dificuldade para respirar ou respiração acelerada</li>
+                        <li>🚨 Aumento ou diminuição no consumo de água</li>
+                        <li>🚨 Dificuldade para urinar ou defecar</li>
+                        <li>🚨 Feridas que não cicatrizam</li>
+                        <li>🚨 Perda ou ganho de peso repentino</li>
+                        <li>🚨 Tosse persistente</li>
+                        <li>🚨 Coceira excessiva ou perda de pelo</li>
+                    </ul>
+                    <p><strong>⚠️ IMPORTANTE:</strong> Não espere os sintomas piorarem. Em caso de dúvida, sempre consulte um veterinário. O atendimento domiciliar pode ser especialmente útil nesses casos, evitando o estresse do transporte.</p>
                 </div>
                 
                 <div class="care-conclusion">
-                    <h3>Considerações Finais</h3>
-                    <p>Manter um animal saudável requer atenção e cuidados constantes. As informações acima são apenas um guia geral. Sempre consulte um veterinário para recomendações específicas para o seu pet. O cuidado adequado não só melhora a qualidade de vida do seu animal, mas também fortalece o vínculo entre vocês.</p>
+                    <h3>💚 Considerações Finais</h3>
+                    <p>Manter um animal saudável requer atenção e cuidados constantes. As informações acima são um guia geral, mas <strong>cada animal é único</strong> e pode ter necessidades específicas baseadas em sua raça, idade, histórico de saúde e estilo de vida.</p>
+                    <p><strong>Sempre consulte um médico veterinário para recomendações personalizadas para o seu pet.</strong> O cuidado adequado não só melhora a qualidade de vida do seu animal, mas também fortalece o vínculo entre vocês e pode prevenir problemas graves de saúde, economizando tempo, dinheiro e sofrimento no futuro.</p>
+                    <p>💙 Lembre-se: um pet saudável é um pet feliz, e um pet feliz traz alegria para toda a família!</p>
                 </div>
             </div>
         </div>
@@ -113,14 +277,8 @@
     <section class="cta-section">
         <div class="container">
             <h2>Dúvidas Sobre os Cuidados com seu Pet?</h2>
-            <p>Entre em contato para uma consulta personalizada e receba orientações específicas para o seu animal.</p>
-            <p>
-                .
-            </p>
-            <a href="index.html#contato" class="cta-button">Agendar Consulta</a>
-            <p>
-                .
-            </p>
+            <p>Entre em contato para uma consulta personalizada e receba orientações específicas para o seu animal. Atendimento domiciliar 24 horas.</p>
+            <a href="index.html#contato" class="cta-button">📞 Agendar Consulta</a>
         </div>
     </section>
 
@@ -130,11 +288,12 @@
             <div class="footer-col">
                 <h3>Dr. James Andrade</h3>
                 <p>Médico Veterinário</p>
-                <p>CRMV/MS 6923</p>
+                <p><strong>CRMV/MS 6923</strong></p>
+                <p style="margin-top: 10px; font-size: 0.9em;">Atendimento Veterinário Domiciliar<br>Campo Grande - MS</p>
                 <div class="social-links">
-                   <a href="https://www.facebook.com/james.andrade.41251/" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.instagram.com/james.medvet?igsh=YzljYTk1ODg3Zg%3D%3D" class="social-icon"><i class="fab fa-instagram"></i></a>
-                    <a href="https://wa.me/67999434907" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.facebook.com/james.andrade.41251/" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/james.medvet?igsh=YzljYTk1ODg3Zg%3D%3D" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/5567999434907" class="social-icon" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
             <div class="footer-col">
@@ -144,6 +303,7 @@
                     <li><a href="graduacao.html">Graduação</a></li>
                     <li><a href="servicos.html">Serviços</a></li>
                     <li><a href="cuidados.html">Cuidados</a></li>
+                    <li><a href="index.html#ebook">E-book Grátis</a></li>
                 </ul>
             </div>
             <div class="footer-col">
@@ -157,21 +317,70 @@
             </div>
             <div class="footer-col">
                 <h3>Contato</h3>
-                <p><i class="fas fa-phone"></i> (67) 99943-4907</p>
-                <p><i class="fas fa-envelope"></i> jamesbarbosaandrade@gmail.com</p>
+                <p><i class="fas fa-phone"></i> <a href="tel:+5567999434907">(67) 99943-4907</a></p>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:jamesbarbosaandrade@gmail.com">jamesbarbosaandrade@gmail.com</a></p>
                 <p><i class="fas fa-map-marker-alt"></i> Campo Grande - MS</p>
+                <p style="margin-top: 10px;"><i class="fas fa-clock"></i> <strong>24 horas</strong></p>
             </div>
         </div>
         <div class="copyright">
-            <p>&copy; 2025 Dr. James Andrade. Todos os direitos reservados.</p>
+            <p>&copy; 2025 Dr. James Andrade - CRMV/MS 6923. Todos os direitos reservados.</p>
         </div>
     </footer>
 
     <!-- Botão Voltar ao Topo -->
-    <a href="#" id="scroll-top" class="scroll-top">
+    <a href="#" id="scroll-top" class="scroll-top" aria-label="Voltar ao topo">
         <i class="fas fa-arrow-up"></i>
     </a>
 
+    <!-- Botão WhatsApp -->
+    <a href="https://wa.me/5567999434907?text=Olá%20Dr.%20James!%20Tenho%20dúvidas%20sobre%20cuidados%20com%20meu%20pet." 
+       class="whatsapp-float" 
+       target="_blank" 
+       rel="noopener noreferrer"
+       aria-label="Fale conosco pelo WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
     <script src="js/main.js"></script>
+    
+    <!-- Script Menu Mobile -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const body = document.body;
+            
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('active');
+                    body.classList.toggle('menu-open');
+                    const icon = this.querySelector('i');
+                    icon.classList.toggle('fa-bars');
+                    icon.classList.toggle('fa-times');
+                });
+                
+                mobileMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', function() {
+                        mobileMenu.classList.remove('active');
+                        body.classList.remove('menu-open');
+                        mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+                        mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+                    });
+                });
+                
+                document.addEventListener('click', function(e) {
+                    if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                        if (mobileMenu.classList.contains('active')) {
+                            mobileMenu.classList.remove('active');
+                            body.classList.remove('menu-open');
+                            mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+                            mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+                        }
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>

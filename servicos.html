@@ -3,16 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Serviços - Dr. James Andrade</title>
+    
+    <!-- SEO Meta Tags -->
+    <title>Serviços Veterinários Domiciliares - Dr. James Andrade | Campo Grande MS</title>
+    <meta name="description" content="Consultas, vacinação, tratamentos e exames veterinários no conforto da sua casa. Atendimento 24h em Campo Grande MS. CRMV/MS 6923.">
+    <meta name="keywords" content="consulta veterinária domiciliar, vacinação pet em casa, tratamento veterinário domiciliar, exames veterinários">
+    
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Estilos Menu Mobile e WhatsApp -->
+    <style>
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 280px;
+            height: 100vh;
+            background-color: #fff;
+            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 10000;
+            transition: right 0.3s ease;
+            padding-top: 80px;
+            overflow-y: auto;
+        }
+        .mobile-menu.active { right: 0; }
+        .mobile-menu ul { list-style: none; padding: 0; margin: 0; }
+        .mobile-menu ul li { border-bottom: 1px solid #f0f0f0; }
+        .mobile-menu ul li a {
+            display: block;
+            padding: 18px 25px;
+            color: #333;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        .mobile-menu ul li a:hover {
+            background-color: #f8f9fa;
+            color: #4CAF50;
+            padding-left: 30px;
+        }
+        body.menu-open { overflow: hidden; }
+        body.menu-open::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+        }
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #333;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 10001;
+        }
+        @media (max-width: 768px) {
+            .mobile-menu-btn { display: block; }
+        }
+        
+        /* WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            cursor: pointer;
+            z-index: 9999;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4); }
+            50% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.6); }
+        }
+        .whatsapp-float:hover {
+            background-color: #128C7E;
+            transform: scale(1.1);
+            animation: none;
+        }
+        .whatsapp-float i {
+            font-size: 32px;
+            color: white;
+        }
+        .whatsapp-float::before {
+            content: "Fale conosco!";
+            position: absolute;
+            right: 70px;
+            background-color: #fff;
+            color: #333;
+            padding: 8px 12px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            font-size: 14px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+        }
+        .whatsapp-float:hover::before { opacity: 1; }
+        @media (max-width: 768px) {
+            .whatsapp-float { width: 55px; height: 55px; bottom: 15px; right: 15px; }
+            .whatsapp-float i { font-size: 28px; }
+            .whatsapp-float::before { display: none; }
+        }
+    </style>
 </head>
 <body>
     <!-- Banner E-book -->
     <div class="ebook-banner">
         <div class="container">
-            <a href="index.html#ebook">E-book Gratuito - "Guia para pais de Pets de primeira viagem!" - Clique aqui para download!</a>
+            <a href="index.html#ebook">🎁 E-book Gratuito - "Guia para pais de Pets de primeira viagem!" - Baixe Agora!</a>
         </div>
     </div>
 
@@ -23,15 +142,15 @@
                 <img src="images/logo.png" alt="Dr. James Andrade Logo">
                 <h1>Dr. James Andrade</h1>
             </div>
-            <nav>
+            <nav aria-label="Menu principal">
                 <ul>
                     <li><a href="index.html">Página Inicial</a></li>
                     <li><a href="graduacao.html">Graduação</a></li>
-                    <li><a href="servicos.html">Serviços</a></li>
+                    <li><a href="servicos.html" aria-current="page">Serviços</a></li>
                     <li><a href="cuidados.html">Cuidados</a></li>
                     <li><a href="index.html#contato" class="cta-button">Agendar Consulta</a></li>
                 </ul>
-                <button class="mobile-menu-btn">
+                <button class="mobile-menu-btn" aria-label="Abrir menu">
                     <i class="fas fa-bars"></i>
                 </button>
             </nav>
@@ -39,7 +158,7 @@
     </header>
 
     <!-- Menu Mobile -->
-    <div class="mobile-menu">
+    <nav class="mobile-menu" aria-label="Menu mobile">
         <ul>
             <li><a href="index.html">Página Inicial</a></li>
             <li><a href="graduacao.html">Graduação</a></li>
@@ -47,13 +166,13 @@
             <li><a href="cuidados.html">Cuidados</a></li>
             <li><a href="index.html#contato">Agendar Consulta</a></li>
         </ul>
-    </div>
+    </nav>
 
     <!-- Page Header -->
     <section class="page-header">
         <div class="container">
-            <h1>Nossos Serviços</h1>
-            <p>Atendimento Veterinário Domiciliar 24h</p>
+            <h1>Serviços Veterinários Domiciliares</h1>
+            <p>Atendimento completo 24 horas no conforto da sua casa</p>
         </div>
     </section>
 
@@ -62,111 +181,92 @@
         <div class="container">
             <div class="service-detail">
                 <div class="service-image">
-                    <img src="images/service-consulta-large.jpg" alt="Consulta Veterinária">
+                    <img src="images/service-consulta-large.jpg" alt="Consulta Veterinária Domiciliar em Campo Grande">
                 </div>
                 <div class="service-info">
-                    <h2>Consulta</h2>
+                    <h2>Consulta Veterinária Domiciliar</h2>
                     <p>Realize consultas veterinárias completas sem sair de casa. Nosso atendimento domiciliar proporciona uma avaliação detalhada da saúde do seu pet em um ambiente familiar, reduzindo o estresse e facilitando o diagnóstico.</p>
                     <p>Durante a consulta, realizamos exame físico completo, avaliação de sinais clínicos, orientações sobre cuidados específicos e, quando necessário, indicação de exames complementares.</p>
-                    <p>
-                        .
-                    </p>
-                    <a href="index.html#contato" class="cta-button">Agendar Consulta</a>
-                    <p>
-                        .
-                    </p>
+                    <p><strong>Ideal para:</strong> Avaliações de rotina, check-ups, pets idosos, animais com dificuldade de locomoção</p>
+                    <a href="index.html#contato" class="cta-button">📞 Agendar Consulta</a>
                 </div>
             </div>
 
             <div class="service-detail">
                 <div class="service-image">
-                    <img src="images/service-vacinacao-large.jpg" alt="Vacinação">
+                    <img src="images/service-vacinacao-large.jpg" alt="Vacinação de Pets em Domicílio">
                 </div>
                 <div class="service-info">
-                    <h2>Vacinação</h2>
+                    <h2>Vacinação em Casa</h2>
                     <p>Mantenha as vacinas do seu pet em dia sem o estresse de deslocamentos. Oferecemos serviço de vacinação domiciliar com todas as vacinas necessárias para cães e gatos, seguindo protocolos rigorosos de conservação e aplicação.</p>
                     <p>Antes da vacinação, realizamos uma avaliação clínica para garantir que seu pet está em condições adequadas para receber a vacina, maximizando a eficácia e segurança do procedimento.</p>
-                    <p>
-                        .
-                    </p>
-                    <a href="index.html#contato" class="cta-button">Agendar Vacinação</a>
-                    <p>
-                        .
-                    </p>
+                    <p><strong>Vacinas disponíveis:</strong> V8, V10, antirrábica, giárdia, gripe canina, e todas as vacinas do protocolo felino</p>
+                    <a href="index.html#contato" class="cta-button">💉 Agendar Vacinação</a>
                 </div>
             </div>
 
             <div class="service-detail">
                 <div class="service-image">
-                    <img src="images/service-tratamento-large.jpg" alt="Tratamento">
+                    <img src="images/service-tratamento-large.jpg" alt="Tratamento Veterinário Domiciliar">
                 </div>
                 <div class="service-info">
-                    <h2>Tratamento</h2>
+                    <h2>Tratamento e Acompanhamento</h2>
                     <p>Realizamos o tratamento necessário de patologias diagnosticadas, com acompanhamento contínuo. Nosso serviço domiciliar permite que seu pet receba os cuidados médicos necessários no conforto do seu lar.</p>
                     <p>Desenvolvemos planos de tratamento personalizados, com monitoramento regular da evolução clínica e ajustes quando necessário, garantindo a melhor recuperação possível para seu animal.</p>
-                    <p>
-                        .
-                    </p>
-                    <a href="index.html#contato" class="cta-button">Solicitar Tratamento</a>
-                    <p>
-                        .
-                    </p>
+                    <p><strong>Tratamentos incluem:</strong> Medicações, curativos, acompanhamento pós-operatório, terapia de suporte</p>
+                    <a href="index.html#contato" class="cta-button">🩺 Solicitar Tratamento</a>
                 </div>
             </div>
 
             <div class="service-detail">
                 <div class="service-image">
-                    <img src="images/service-exames-large.jpg" alt="Exames">
+                    <img src="images/service-exames-large.jpg" alt="Coleta de Exames Veterinários em Casa">
                 </div>
                 <div class="service-info">
-                    <h2>Exames Terceirizados</h2>
-                    <p>Oferecemos coleta domiciliar para diversos exames laboratoriais, incluindo:</p>
-                    <ul>
-                        <li>Hemograma</li>
-                        <li>Bioquímico</li>
-                        <li>Outros exames laboratoriais</li>
+                    <h2>Exames Laboratoriais - Coleta Domiciliar</h2>
+                    <p>Oferecemos coleta domiciliar para diversos exames laboratoriais:</p>
+                    <ul style="margin: 15px 0;">
+                        <li>✓ Hemograma completo</li>
+                        <li>✓ Bioquímico (função renal, hepática, etc.)</li>
+                        <li>✓ Exame de urina</li>
+                        <li>✓ Coproparasitológico</li>
+                        <li>✓ Outros exames laboratoriais</li>
                     </ul>
                     <p>As amostras são coletadas em casa e encaminhadas para laboratórios parceiros de confiança, garantindo resultados precisos sem a necessidade de deslocamento do seu pet.</p>
-                    <p>
-                        .
-                    </p>
-                    <a href="index.html#contato" class="cta-button">Solicitar Exames</a>
-                    <p>
-                        .
-                    </p>
+                    <a href="index.html#contato" class="cta-button">🔬 Solicitar Exames</a>
                 </div>
             </div>
 
             <div class="service-benefits">
-                <h2>Benefícios do Atendimento Domiciliar</h2>
+                <h2>Por que Escolher o Atendimento Domiciliar?</h2>
                 <div class="benefits-grid">
                     <div class="benefit-item">
                         <div class="benefit-icon">
                             <i class="fas fa-heart"></i>
                         </div>
-                        <h3>Redução do estresse do animal</h3>
-                        <p>Seu pet é atendido em ambiente familiar, sem o estresse de transportes e salas de espera.</p>
+                        <h3>Redução do Estresse</h3>
+                        <p>Seu pet é atendido em ambiente familiar, sem o estresse de transportes e salas de espera lotadas.</p>
                     </div>
                     <div class="benefit-item">
                         <div class="benefit-icon">
                             <i class="fas fa-home"></i>
                         </div>
-                        <h3>Maior comodidade para o tutor</h3>
+                        <h3>Comodidade Total</h3>
                         <p>Economize tempo e evite deslocamentos, recebendo atendimento veterinário de qualidade em casa.</p>
                     </div>
                     <div class="benefit-item">
                         <div class="benefit-icon">
                             <i class="fas fa-user-md"></i>
                         </div>
-                        <h3>Atendimento personalizado</h3>
-                        <p>Cada visita é dedicada exclusivamente ao seu animal, permitindo uma avaliação mais detalhada.</p>
+                        <h3>Atendimento Exclusivo</h3>
+                        <p>Cada visita é dedicada 100% ao seu animal, permitindo uma avaliação mais detalhada e personalizada.</p>
                     </div>
                     <div class="benefit-item">
                         <div class="benefit-icon">
                             <i class="fas fa-clock"></i>
                         </div>
-                        <h3>Disponibilidade 24 horas</h3>
-                        <p>Atendimento disponível a qualquer hora, inclusive em emergências e finais de semana.</p>
+                        <h3>Disponibilidade 24h</h3>
+                        <p>Atendimento disponível a qualquer hora, inclusive em emergências, finais de semana e feriados.</p>
                     </div>
                 </div>
             </div>
@@ -176,15 +276,9 @@
     <!-- CTA Section -->
     <section class="cta-section">
         <div class="container">
-            <h2>Agende uma Consulta Hoje Mesmo</h2>
+            <h2>Agende sua Consulta Agora</h2>
             <p>Proporcione ao seu pet o melhor atendimento veterinário no conforto do seu lar.</p>
-            <p> 
-                .
-            </p>
-            <a href="index.html#contato" class="cta-button">Entrar em Contato</a>
-            <p>
-                .
-            </p>
+            <a href="index.html#contato" class="cta-button">📞 Entrar em Contato</a>
         </div>
     </section>
 
@@ -194,11 +288,12 @@
             <div class="footer-col">
                 <h3>Dr. James Andrade</h3>
                 <p>Médico Veterinário</p>
-                <p>CRMV/MS 6923</p>
+                <p><strong>CRMV/MS 6923</strong></p>
+                <p style="margin-top: 10px; font-size: 0.9em;">Atendimento Veterinário Domiciliar<br>Campo Grande - MS</p>
                 <div class="social-links">
-                    <a href="https://www.facebook.com/james.andrade.41251/" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.instagram.com/james.medvet?igsh=YzljYTk1ODg3Zg%3D%3D" class="social-icon"><i class="fab fa-instagram"></i></a>
-                    <a href="https://wa.me/67999434907" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.facebook.com/james.andrade.41251/" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/james.medvet?igsh=YzljYTk1ODg3Zg%3D%3D" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/5567999434907" class="social-icon" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
             <div class="footer-col">
@@ -208,34 +303,84 @@
                     <li><a href="graduacao.html">Graduação</a></li>
                     <li><a href="servicos.html">Serviços</a></li>
                     <li><a href="cuidados.html">Cuidados</a></li>
+                    <li><a href="index.html#ebook">E-book Grátis</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h3>Serviços</h3>
                 <ul>
-                    <li><a href="servicos.html">Consulta</a></li>
-                    <li><a href="servicos.html">Vacinação</a></li>
-                    <li><a href="servicos.html">Tratamento</a></li>
-                    <li><a href="servicos.html">Exames</a></li>
+                    <li><a href="#consulta">Consulta</a></li>
+                    <li><a href="#vacinacao">Vacinação</a></li>
+                    <li><a href="#tratamento">Tratamento</a></li>
+                    <li><a href="#exames">Exames</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h3>Contato</h3>
-                <p><i class="fas fa-phone"></i> (67) 99943-4907</p>
-                <p><i class="fas fa-envelope"></i> jamesbarbosaandrade@gmail.com</p>
+                <p><i class="fas fa-phone"></i> <a href="tel:+5567999434907">(67) 99943-4907</a></p>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:jamesbarbosaandrade@gmail.com">jamesbarbosaandrade@gmail.com</a></p>
                 <p><i class="fas fa-map-marker-alt"></i> Campo Grande - MS</p>
+                <p style="margin-top: 10px;"><i class="fas fa-clock"></i> <strong>24 horas</strong></p>
             </div>
         </div>
         <div class="copyright">
-            <p>&copy; 2025 Dr. James Andrade. Todos os direitos reservados.</p>
+            <p>&copy; 2025 Dr. James Andrade - CRMV/MS 6923. Todos os direitos reservados.</p>
         </div>
     </footer>
 
     <!-- Botão Voltar ao Topo -->
-    <a href="#" id="scroll-top" class="scroll-top">
+    <a href="#" id="scroll-top" class="scroll-top" aria-label="Voltar ao topo">
         <i class="fas fa-arrow-up"></i>
     </a>
 
+    <!-- Botão WhatsApp -->
+    <a href="https://wa.me/5567999434907?text=Olá%20Dr.%20James!%20Gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20veterinários%20domiciliares." 
+       class="whatsapp-float" 
+       target="_blank" 
+       rel="noopener noreferrer"
+       aria-label="Fale conosco pelo WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
     <script src="js/main.js"></script>
+    
+    <!-- Script Menu Mobile -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const body = document.body;
+            
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('active');
+                    body.classList.toggle('menu-open');
+                    const icon = this.querySelector('i');
+                    icon.classList.toggle('fa-bars');
+                    icon.classList.toggle('fa-times');
+                });
+                
+                mobileMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', function() {
+                        mobileMenu.classList.remove('active');
+                        body.classList.remove('menu-open');
+                        mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+                        mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+                    });
+                });
+                
+                document.addEventListener('click', function(e) {
+                    if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                        if (mobileMenu.classList.contains('active')) {
+                            mobileMenu.classList.remove('active');
+                            body.classList.remove('menu-open');
+                            mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+                            mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+                        }
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>
