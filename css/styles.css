@@ -22,6 +22,7 @@ body {
   background-color: var(--background-color);
   color: var(--text-color);
   line-height: 1.6;
+  overflow-x: hidden; /* evita scroll horizontal em mobile */
 }
 
 .container {
@@ -39,14 +40,15 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1000;
+  z-index: 1001; /* acima do overlay */
+  height: var(--header-height);
 }
 
 .header-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: var(--header-height);
+  height: 100%;
 }
 
 .logo {
@@ -96,6 +98,7 @@ nav ul li a:hover {
   font-weight: 600;
   transition: background-color 0.3s;
   margin-top: 0;
+  display: inline-block;
 }
 
 .cta-button:hover {
@@ -111,7 +114,7 @@ nav ul li a:hover {
   cursor: pointer;
   color: var(--primary-color);
   padding: 5px;
-  z-index: 1001;
+  z-index: 1002;
 }
 
 /* Menu Mobile - Lateral Direito com Overlay */
@@ -160,34 +163,31 @@ nav ul li a:hover {
   padding-left: 10px;
 }
 
-/* Overlay */
-body.menu-open::before {
-  content: '';
+/* Overlay para fundo escurecido */
+.overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
   z-index: 999;
   opacity: 0;
   visibility: hidden;
   transition: all 0.4s ease-in-out;
 }
 
-body.menu-open::before {
+.overlay.active {
   opacity: 1;
   visibility: visible;
 }
 
+/* Animação do ícone (opcional) */
 .mobile-menu-btn i {
   transition: transform 0.3s ease;
 }
 
-.mobile-menu-btn.active i {
-  transform: rotate(90deg);
-}
-
+/* Responsividade */
 @media (max-width: 992px) {
   .hero-content,
   .about-container,
@@ -719,8 +719,8 @@ footer {
 /* Scroll Top */
 #scroll-top {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  bottom: 90px;
+  right: 24px;
   background: var(--secondary-color);
   color: white;
   border: none;
@@ -732,12 +732,19 @@ footer {
   display: none;
   z-index: 1000;
   transition: opacity 0.3s;
+  text-decoration: none;
 }
 
 #scroll-top:hover {
   opacity: 0.8;
 }
-/* Corrige todas as páginas (graduacao, servicos, cuidados) que não têm .hero */
+
+/* Ajuste padding para páginas internas (não home) */
 body:not(.home) {
-    padding-top: 100px; /* aumenta um pouco mais pra ficar bonito */
+  padding-top: 100px;
+}
+
+/* Garantir que conteúdo não fique escondido atrás do header fixo */
+section, footer {
+  scroll-margin-top: calc(var(--header-height) + 10px);
 }
