@@ -61,7 +61,7 @@
     }
     </script>
     
-    <!-- Estilos do Botão WhatsApp -->
+    <!-- Estilos do Botão WhatsApp + MENU MOBILE -->
     <style>
         .whatsapp-float {
             position: fixed;
@@ -83,15 +83,9 @@
         }
 
         @keyframes pulse {
-            0% {
-                box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
-            }
-            50% {
-                box-shadow: 0 4px 20px rgba(37, 211, 102, 0.6);
-            }
-            100% {
-                box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
-            }
+            0% { box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4); }
+            50% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.6); }
+            100% { box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4); }
         }
 
         .whatsapp-float:hover {
@@ -128,7 +122,7 @@
             opacity: 1;
         }
 
-        /* Estilos para mensagem de sucesso */
+        /* Mensagem de sucesso */
         .success-message {
             display: none;
             background-color: #4CAF50;
@@ -145,14 +139,8 @@
         }
 
         @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .submit-btn {
@@ -180,25 +168,63 @@
         }
 
         @keyframes spinner {
-            to {
-                transform: rotate(360deg);
-            }
+            to { transform: rotate(360deg); }
         }
 
-        /* Urgência no banner */
+        /* Banner */
         .ebook-banner {
             animation: fadeIn 0.5s ease;
         }
 
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* === MENU MOBILE === */
+        .mobile-menu {
+            display: none;
+        }
+
+        .mobile-menu.active {
+            display: block;
+            position: fixed;
+            top: 70px;
+            left: 0;
+            width: 100%;
+            background-color: #fff;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            padding: 15px 0;
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 12px 20px;
+            color: #333;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .mobile-menu a:hover {
+            background-color: #f9f9f9;
+        }
+
+        @media (min-width: 769px) {
+            .mobile-menu-btn {
+                display: none;
             }
         }
 
+        /* Responsividade WhatsApp float */
         @media (max-width: 768px) {
             .whatsapp-float {
                 width: 55px;
@@ -206,11 +232,9 @@
                 bottom: 15px;
                 right: 15px;
             }
-
             .whatsapp-float i {
                 font-size: 28px;
             }
-
             .whatsapp-float::before {
                 display: none;
             }
@@ -240,7 +264,7 @@
                     <li><a href="cuidados.html">Cuidados</a></li>
                     <li><a href="#contato" class="cta-button">Agendar Consulta</a></li>
                 </ul>
-                <button class="mobile-menu-btn" aria-label="Abrir menu de navegação">
+                <button class="mobile-menu-btn" aria-label="Abrir menu de navegação" aria-expanded="false">
                     <i class="fas fa-bars"></i>
                 </button>
             </nav>
@@ -281,23 +305,17 @@
             </div>
             <div class="cards-container">
                 <div class="card animate delay-1">
-                    <div class="card-icon">
-                        <i class="fas fa-home"></i>
-                    </div>
+                    <div class="card-icon"><i class="fas fa-home"></i></div>
                     <h3>Conveniência Total</h3>
                     <p>Sem precisar sair de casa, seu pet recebe atendimento veterinário profissional de qualidade. Economize tempo e evite deslocamentos.</p>
                 </div>
                 <div class="card animate delay-2">
-                    <div class="card-icon">
-                        <i class="fas fa-heart"></i>
-                    </div>
+                    <div class="card-icon"><i class="fas fa-heart"></i></div>
                     <h3>Zero Estresse</h3>
                     <p>Evite o estresse de transportes, barulhos e salas de espera lotadas. Seu animal fica calmo no ambiente familiar.</p>
                 </div>
                 <div class="card animate delay-3">
-                    <div class="card-icon">
-                        <i class="fas fa-user-md"></i>
-                    </div>
+                    <div class="card-icon"><i class="fas fa-user-md"></i></div>
                     <h3>Atendimento Exclusivo</h3>
                     <p>Cada visita é dedicada 100% ao seu animal. Tempo de qualidade para diagnóstico preciso e tratamento personalizado.</p>
                 </div>
@@ -314,9 +332,7 @@
             </div>
             <div class="services-grid">
                 <div class="service-item animate delay-1">
-                    <div class="service-image">
-                        <img src="images/service-consulta.jpg" alt="Consulta veterinária domiciliar em Campo Grande">
-                    </div>
+                    <div class="service-image"><img src="images/service-consulta.jpg" alt="Consulta veterinária domiciliar em Campo Grande"></div>
                     <div class="service-content">
                         <h3>Consulta Veterinária</h3>
                         <p>Avaliação completa da saúde do seu pet: exame físico, orientações e diagnóstico no conforto do seu lar.</p>
@@ -324,9 +340,7 @@
                     </div>
                 </div>
                 <div class="service-item animate delay-2">
-                    <div class="service-image">
-                        <img src="images/service-vacinacao.jpg" alt="Vacinação de pets em domicílio Campo Grande">
-                    </div>
+                    <div class="service-image"><img src="images/service-vacinacao.jpg" alt="Vacinação de pets em domicílio Campo Grande"></div>
                     <div class="service-content">
                         <h3>Vacinação Domiciliar</h3>
                         <p>Mantenha as vacinas do seu pet em dia sem sair de casa. Protocolo completo com segurança e conforto.</p>
@@ -334,9 +348,7 @@
                     </div>
                 </div>
                 <div class="service-item animate delay-3">
-                    <div class="service-image">
-                        <img src="images/service-tratamento.jpg" alt="Tratamento veterinário em casa Campo Grande MS">
-                    </div>
+                    <div class="service-image"><img src="images/service-tratamento.jpg" alt="Tratamento veterinário em casa Campo Grande MS"></div>
                     <div class="service-content">
                         <h3>Tratamento e Acompanhamento</h3>
                         <p>Tratamento de patologias diagnosticadas com acompanhamento regular e suporte contínuo para recuperação.</p>
@@ -374,36 +386,28 @@
                 <div class="contact-info animate delay-1">
                     <h3>Informações de Contato</h3>
                     <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
+                        <div class="contact-icon"><i class="fas fa-phone"></i></div>
                         <div class="contact-text">
                             <h4>WhatsApp / Telefone</h4>
                             <p><a href="tel:+5567999434907">(67) 99943-4907</a></p>
                         </div>
                     </div>
                     <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
                         <div class="contact-text">
                             <h4>E-mail</h4>
                             <p><a href="mailto:jamesbarbosaandrade@gmail.com">jamesbarbosaandrade@gmail.com</a></p>
                         </div>
                     </div>
                     <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
                         <div class="contact-text">
                             <h4>Área de Atendimento</h4>
                             <p>Campo Grande - MS e região</p>
                         </div>
                     </div>
                     <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-clock"></i>
-                        </div>
+                        <div class="contact-icon"><i class="fas fa-clock"></i></div>
                         <div class="contact-text">
                             <h4>Horário de Atendimento</h4>
                             <p><strong>24 horas - Todos os dias</strong></p>
@@ -519,7 +523,7 @@
     </a>
 
     <!-- Botão Flutuante WhatsApp -->
-    <a href="https://wa.me/5567999434907?text=Olá%20Dr.%20James!%20Gostaria%20de%20agendar%20uma%20consulta%20veterinária%20domiciliar.%20Pode%20me%20ajudar?" 
+    <a href="https://wa.me/5567999434907?text=Ol%C3%A1%20Dr.%20James!%20Gostaria%20de%20agendar%20uma%20consulta%20veterinária%20domiciliar.%20Pode%20me%20ajudar?" 
        class="whatsapp-float" 
        target="_blank" 
        rel="noopener noreferrer"
@@ -527,55 +531,78 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <script src="js/main.js"></script>
-    
-    <!-- Script para envio do formulário via WhatsApp -->
+    <!-- Script para menu mobile e formulário -->
     <script>
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const btn = this.querySelector('.submit-btn');
-            const successMsg = document.getElementById('success-message');
-            
-            // Adiciona loading
-            btn.classList.add('loading');
-            btn.querySelector('span').textContent = 'Enviando...';
-            
-            // Coleta os dados
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            const pet = document.getElementById('pet').value;
-            const message = document.getElementById('message').value;
-            
-            // Monta a mensagem para WhatsApp
-            let whatsappMessage = `*Nova Solicitação de Consulta*%0A%0A`;
-            whatsappMessage += `*Nome:* ${encodeURIComponent(name)}%0A`;
-            whatsappMessage += `*E-mail:* ${encodeURIComponent(email)}%0A`;
-            whatsappMessage += `*Telefone:* ${encodeURIComponent(phone)}%0A`;
-            if(pet) whatsappMessage += `*Pet:* ${encodeURIComponent(pet)}%0A`;
-            whatsappMessage += `*Mensagem:* ${encodeURIComponent(message)}`;
-            
-            // Simula envio e abre WhatsApp
-            setTimeout(() => {
-                // Abre WhatsApp
-                window.open(`https://wa.me/5567999434907?text=${whatsappMessage}`, '_blank');
+        document.addEventListener('DOMContentLoaded', function () {
+            // MENU MOBILE
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const mobileMenu = document.querySelector('.mobile-menu');
+
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', function () {
+                    const isActive = mobileMenu.classList.toggle('active');
+                    const icon = this.querySelector('i');
+                    this.setAttribute('aria-expanded', isActive);
+
+                    if (isActive) {
+                        icon.classList.remove('fa-bars');
+                        icon.classList.add('fa-times');
+                    } else {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                });
+
+                // Fecha menu ao clicar em um link
+                const mobileLinks = mobileMenu.querySelectorAll('a');
+                mobileLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.remove('active');
+                        const icon = mobileMenuBtn.querySelector('i');
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                    });
+                });
+            }
+
+            // FORMULÁRIO VIA WHATSAPP
+            document.getElementById('contact-form')?.addEventListener('submit', function(e) {
+                e.preventDefault();
                 
-                // Remove loading
-                btn.classList.remove('loading');
-                btn.querySelector('span').textContent = 'Enviar Mensagem';
+                const btn = this.querySelector('.submit-btn');
+                const successMsg = document.getElementById('success-message');
                 
-                // Mostra mensagem de sucesso
-                successMsg.classList.add('show');
+                btn.classList.add('loading');
+                btn.querySelector('span').textContent = 'Enviando...';
                 
-                // Limpa o formulário
-                this.reset();
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const phone = document.getElementById('phone').value;
+                const pet = document.getElementById('pet').value;
+                const message = document.getElementById('message').value;
                 
-                // Remove mensagem após 5 segundos
+                let whatsappMessage = `*Nova Solicitação de Consulta*%0A%0A`;
+                whatsappMessage += `*Nome:* ${encodeURIComponent(name)}%0A`;
+                whatsappMessage += `*E-mail:* ${encodeURIComponent(email)}%0A`;
+                whatsappMessage += `*Telefone:* ${encodeURIComponent(phone)}%0A`;
+                if(pet) whatsappMessage += `*Pet:* ${encodeURIComponent(pet)}%0A`;
+                whatsappMessage += `*Mensagem:* ${encodeURIComponent(message)}`;
+                
                 setTimeout(() => {
-                    successMsg.classList.remove('show');
-                }, 5000);
-            }, 1000);
+                    window.open(`https://wa.me/5567999434907?text=${whatsappMessage}`, '_blank');
+                    
+                    btn.classList.remove('loading');
+                    btn.querySelector('span').textContent = 'Enviar Mensagem';
+                    
+                    successMsg.classList.add('show');
+                    this.reset();
+                    
+                    setTimeout(() => {
+                        successMsg.classList.remove('show');
+                    }, 5000);
+                }, 1000);
+            });
         });
     </script>
 </body>
