@@ -737,3 +737,7 @@ footer {
 #scroll-top:hover {
   opacity: 0.8;
 }
+/* Corrige todas as páginas (graduacao, servicos, cuidados) que não têm .hero */
+body:not(.home) {
+    padding-top: 100px; /* aumenta um pouco mais pra ficar bonito */
+}
