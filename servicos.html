@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="js/main.js" defer></script>
+    <script src="js/main.js"></script>
     <style>
       body { padding-top: 100px; }
     </style>
@@ -16,120 +16,6 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Estilos Menu Mobile e WhatsApp -->
-    <style>
-        .mobile-menu {
-            position: fixed;
-            top: 0;
-            right: -100%;
-            width: 280px;
-            height: 100vh;
-            background-color: #fff;
-            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
-            z-index: 10000;
-            transition: right 0.3s ease;
-            padding-top: 80px;
-            overflow-y: auto;
-        }
-        .mobile-menu.active { right: 0; }
-        .mobile-menu ul { list-style: none; padding: 0; margin: 0; }
-        .mobile-menu ul li { border-bottom: 1px solid #f0f0f0; }
-        .mobile-menu ul li a {
-            display: block;
-            padding: 18px 25px;
-            color: #333;
-            text-decoration: none;
-            font-size: 16px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-        .mobile-menu ul li a:hover {
-            background-color: #f8f9fa;
-            color: #4CAF50;
-            padding-left: 30px;
-        }
-        body.menu-open { overflow: hidden; }
-        body.menu-open::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 9999;
-        }
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 24px;
-            color: #333;
-            cursor: pointer;
-            padding: 10px;
-            z-index: 10001;
-        }
-        @media (max-width: 768px) {
-            .mobile-menu-btn { display: block; }
-        }
-        
-        /* WhatsApp Button */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 60px;
-            height: 60px;
-            background-color: #25D366;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            cursor: pointer;
-            z-index: 9999;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            animation: pulse 2s infinite;
-        }
-        @keyframes pulse {
-            0%, 100% { box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4); }
-            50% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.6); }
-        }
-        .whatsapp-float:hover {
-            background-color: #128C7E;
-            transform: scale(1.1);
-            animation: none;
-        }
-        .whatsapp-float i {
-            font-size: 32px;
-            color: white;
-        }
-        .whatsapp-float::before {
-            content: "Fale conosco!";
-            position: absolute;
-            right: 70px;
-            background-color: #fff;
-            color: #333;
-            padding: 8px 12px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-            white-space: nowrap;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s ease;
-            font-size: 14px;
-            font-family: 'Poppins', sans-serif;
-            font-weight: 500;
-        }
-        .whatsapp-float:hover::before { opacity: 1; }
-        @media (max-width: 768px) {
-            .whatsapp-float { width: 55px; height: 55px; bottom: 15px; right: 15px; }
-            .whatsapp-float i { font-size: 28px; }
-            .whatsapp-float::before { display: none; }
-        }
-    </style>
 </head>
 <body>
     <!-- Banner E-book -->
@@ -154,7 +40,7 @@
                     <li><a href="cuidados.html">Cuidados</a></li>
                     <li><a href="index.html#contato" class="cta-button">Agendar Consulta</a></li>
                 </ul>
-                <button class="mobile-menu-btn" aria-label="Abrir menu">
+                <button class="mobile-menu-btn" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu">
                     <i class="fas fa-bars"></i>
                 </button>
             </nav>
@@ -162,15 +48,18 @@
     </header>
 
     <!-- Menu Mobile -->
-    <nav class="mobile-menu" aria-label="Menu mobile">
+    <div class="mobile-menu" id="mobile-menu" aria-label="Menu de navegação">
+        <button class="close-menu-btn" aria-label="Fechar menu">
+            <i class="fas fa-times"></i>
+        </button>
         <ul>
             <li><a href="index.html">Página Inicial</a></li>
             <li><a href="graduacao.html">Graduação</a></li>
             <li><a href="servicos.html">Serviços</a></li>
             <li><a href="cuidados.html">Cuidados</a></li>
-            <li><a href="index.html#contato">Agendar Consulta</a></li>
+            <li><a href="index.html#contato" class="cta-button">Agendar Consulta</a></li>
         </ul>
-    </nav>
+    </div>
 
     <!-- Page Header -->
     <section class="page-header">
@@ -348,43 +237,5 @@
 
     <script src="js/main.js"></script>
     
-    <!-- Script Menu Mobile -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-            const mobileMenu = document.querySelector('.mobile-menu');
-            const body = document.body;
-            
-            if (mobileMenuBtn && mobileMenu) {
-                mobileMenuBtn.addEventListener('click', function() {
-                    mobileMenu.classList.toggle('active');
-                    body.classList.toggle('menu-open');
-                    const icon = this.querySelector('i');
-                    icon.classList.toggle('fa-bars');
-                    icon.classList.toggle('fa-times');
-                });
-                
-                mobileMenu.querySelectorAll('a').forEach(link => {
-                    link.addEventListener('click', function() {
-                        mobileMenu.classList.remove('active');
-                        body.classList.remove('menu-open');
-                        mobileMenuBtn.querySelector('i').classList.remove('fa-times');
-                        mobileMenuBtn.querySelector('i').classList.add('fa-bars');
-                    });
-                });
-                
-                document.addEventListener('click', function(e) {
-                    if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-                        if (mobileMenu.classList.contains('active')) {
-                            mobileMenu.classList.remove('active');
-                            body.classList.remove('menu-open');
-                            mobileMenuBtn.querySelector('i').classList.remove('fa-times');
-                            mobileMenuBtn.querySelector('i').classList.add('fa-bars');
-                        }
-                    }
-                });
-            }
-        });
-    </script>
 </body>
 </html>
