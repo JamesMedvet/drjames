@@ -172,7 +172,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const texto = `*Nova mensagem do site*%0A*Nome:* ${nome}%0A*E-mail:* ${email}%0A*Tel:* ${tel}%0A*Mensagem:* ${msg}`;
       window.open(`https://wa.me/5567999434907?text=${texto}`, "_blank");
 
-      alert("Redirecionando para o WhatsApp...");
+      console.log("Redirecionando para o WhatsApp..."); // Substituído alert() por console.log para melhor UX
       form.reset();
     });
   }
